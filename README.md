@@ -4,10 +4,13 @@ react-render-wrapper
 A easy to use factory wrapper for react components. If you don't use jsx then
 
 ```javascript
-var pager2 = React.render(React.createElement(ViewPager.cls,{ views : ["page11","page22","page33"], visible:"page11"}),
-            document.getElementById("viewpager-container2"));
+//instead of having something like below
+var pager2 = React.render(
+       React.createElement(ViewPager.cls,{ 
+           views : ["page11","page22","page33"], visible:"page11"}),
+   document.getElementById("viewpager-container2"));
 
-//this should be able to have do  something like
+//you can expose your component to something liek below instead
 ViewPager.render({ views : ["page1","page2","page3"], visible:"page1"},"viewpager-container");
 
 ```
