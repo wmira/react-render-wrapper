@@ -31,18 +31,18 @@ var render = function(ReactClass,options,el) {
     var ouroption = {};
     //if he passed an html element or a string on the first argument
     //then we assume he wants no options
-    var el = null;
+    var ourEl = null;
     
     //check if its actually an element
     if ( ( options.tagName && options.nodeName && (typeof options.nodeType === 'number') ) 
         || ( typeof options === 'string' ) ) {
-        el = options;    
+        ourEl = options;
     } else {
         ouroption = options;
-        el = ( typeof el === 'string') ? document.getElementById(el) : el;
+        ourEl = ( typeof el === 'string') ? document.getElementById(el) : el;
     }
-    
-    return React.render(React.createElement(ReactClass,ouroption), el);
+
+    return React.render(React.createElement(ReactClass,ouroption), ourEl);
 };
 
 var RenderWrapper = function(ReactClass) {
