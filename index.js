@@ -1,7 +1,5 @@
-/*globals require,module */
+/*globals require,module,React */
 "use strict";
-
-var React = require("react");
 
 /**
  * React instance creation is a bit noisy. Use this on react a library such
@@ -21,12 +19,12 @@ var React = require("react");
  * var renderWrapper = require("react-render");
  * var MyReactComponent = React.createClass... 
  * 
- * module.exports = renderWrapper(MyReactComponent)
+ * module.exports = renderWrapper(React,MyReactComponent)
  *
  */
 
     
-var render = function(ReactClass,options,el) {
+var render = function(React,ReactClass,options,el) {
     
     var ouroption = {};
     //if he passed an html element or a string on the first argument
@@ -45,12 +43,12 @@ var render = function(ReactClass,options,el) {
     return React.render(React.createElement(ReactClass,ouroption), ourEl);
 };
 
-var RenderWrapper = function(ReactClass) {
+var RenderWrapper = function(React,ReactClass) {
 
     return {
         cls : ReactClass,
         render : function(options,el) {
-            return render(ReactClass,options,el)
+            return render(React,ReactClass,options,el)
         }
     }
 
