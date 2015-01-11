@@ -1,7 +1,7 @@
 react-render-wrapper
 =======================
 
-A easy to use factory wrapper for react components. If you don't use jsx then
+A easy to use factory wrapper for react components. 
 
 ```javascript
 //instead of having something like below
