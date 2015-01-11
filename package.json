@@ -6,6 +6,10 @@
   "author": "Warren Mira <warrenmira@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "mocha": "^2.1.0"
+  },
+  "scripts" : {
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",

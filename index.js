@@ -23,8 +23,16 @@
  *
  */
 
+/**
+ * 
+ * Shortcut to React.createElement(cls,option) 
+ *
+ */
+var elWrapper = function(React,ReactClass,option) {
+    return React.createElement(ReactClass,option);
+};
     
-var render = function(React,ReactClass,options,el) {
+var renderWrapper = function(React,ReactClass,options,el) {
     
     var ouroption = {};
     //if he passed an html element or a string on the first argument
@@ -40,15 +48,18 @@ var render = function(React,ReactClass,options,el) {
         ourEl = ( typeof el === 'string') ? document.getElementById(el) : el;
     }
 
-    return React.render(React.createElement(ReactClass,ouroption), ourEl);
+    return React.render(elWrapper(React,ReactClass,ouroption), ourEl);
 };
 
 var RenderWrapper = function(React,ReactClass) {
 
     return {
         cls : ReactClass,
+        el : function(options) {
+            return elWrapper(React,ReactClass,options);
+        },
         render : function(options,el) {
-            return render(React,ReactClass,options,el)
+            return renderWrapper(React,ReactClass,options,el)
         }
     }
 
